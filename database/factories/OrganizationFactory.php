@@ -17,7 +17,10 @@ class OrganizationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'site_name' => 'Stock Manager',
+            'mobile' => '+880 1788574569',
+            'email' => 'stock@gmail.com',
+            'address' => 'Uttara, Dhaka, Bangladesh',
         ];
     }
 }

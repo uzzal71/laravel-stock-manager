@@ -14,6 +14,6 @@ class OrganizationSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Organization::factory()->times(1)->create();
     }
 }

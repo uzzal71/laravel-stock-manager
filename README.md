@@ -70,6 +70,121 @@ php artisan migrate
 php artisan make:model Organization -mfs
 ```
 
+#### Open orgination migration file
+```
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('organizations', function (Blueprint $table) {
+            $table->id();
+            $table->string('site_name');
+            $table->string('mobile');
+            $table->string('email')->nullable();
+            $table->text('address')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('organizations');
+    }
+};
+
+```
+
+#### Open Organization Model File
+```
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Organization extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['site_name', 'mobile'];
+}
+
+```
+
+#### Open OrganizationFactory
+
+```
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Organization>
+ */
+class OrganizationFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition()
+    {
+        return [
+            'site_name' => 'Stock Manager',
+            'mobile' => '+880 1788574569',
+            'email' => 'stock@gmail.com',
+            'address' => 'Uttara, Dhaka, Bangladesh',
+        ];
+    }
+}
+
+```
+
+#### Open OrganizationSeeder
+
+```
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class OrganizationSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        \App\Models\Organization::factory()->times(1)->create();
+    }
+}
+
+```
+
 ## Step 5 : Create Category Migration file, factory and seeder file
 
 #### In this step, Create migration for the item table.
