@@ -113,6 +113,7 @@ php artisan make:model Supplier -mfs
 ## Step 10 : Create Item Migration file, factory and seeder file
 
 #### In this step, Create migration for the item table.
+
 ```
 php artisan make:model Item -mfs
 ```
@@ -120,6 +121,7 @@ php artisan make:model Item -mfs
 ## Step 11 : Create CheckIn Migration file, factory and seeder file
 
 #### In this step, Create migration for the item table.
+
 ```
 php artisan make:model CheckIn -mfs
 ```
@@ -127,6 +129,7 @@ php artisan make:model CheckIn -mfs
 ## Step 12 : Create CheckInDetail Migration file, factory and seeder file
 
 #### In this step, Create migration for the item table.
+
 ```
 php artisan make:model CheckInDetail -mfs
 ```
@@ -134,6 +137,7 @@ php artisan make:model CheckInDetail -mfs
 ## Step 13 : Create CheckOut Migration file, factory and seeder file
 
 #### In this step, Create migration for the item table.
+
 ```
 php artisan make:model CheckOut -mfs
 ```
@@ -141,6 +145,7 @@ php artisan make:model CheckOut -mfs
 ## Step 14 : Create CheckOutDetail Migration file, factory and seeder file
 
 #### In this step, Create migration for the item table.
+
 ```
 php artisan make:model CheckOutDetail -mfs
 ```
