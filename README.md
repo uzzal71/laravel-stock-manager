@@ -65,6 +65,7 @@ php artisan migrate
 ## Step 4 : Create Organization Migration file, factory and seeder file
 
 #### In this step, Create migration for the item table.
+
 ```
 php artisan make:model Organization -mfs
 ```
@@ -72,6 +73,7 @@ php artisan make:model Organization -mfs
 ## Step 5 : Create Category Migration file, factory and seeder file
 
 #### In this step, Create migration for the item table.
+
 ```
 php artisan make:model Category -mfs
 ```
@@ -79,6 +81,7 @@ php artisan make:model Category -mfs
 ## Step 6 : Create Brand Migration file, factory and seeder file
 
 #### In this step, Create migration for the item table.
+
 ```
 php artisan make:model Brand -mfs
 ```
@@ -86,6 +89,7 @@ php artisan make:model Brand -mfs
 ## Step 7 : Create Barcode Migration file, factory and seeder file
 
 #### In this step, Create migration for the item table.
+
 ```
 php artisan make:model Barcode -mfs
 ```
@@ -93,6 +97,7 @@ php artisan make:model Barcode -mfs
 ## Step 8 : Create Customer Migration file, factory and seeder file
 
 #### In this step, Create migration for the item table.
+
 ```
 php artisan make:model Customer -mfs
 ```
@@ -100,6 +105,7 @@ php artisan make:model Customer -mfs
 ## Step 9 : Create Supplier Migration file, factory and seeder file
 
 #### In this step, Create migration for the item table.
+
 ```
 php artisan make:model Supplier -mfs
 ```
