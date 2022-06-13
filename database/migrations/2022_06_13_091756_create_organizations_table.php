@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('organizations', function (Blueprint $table) {
             $table->id();
+            $table->string('site_name');
+            $table->string('email')->nullable();
+            $table->string('mobile')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }
