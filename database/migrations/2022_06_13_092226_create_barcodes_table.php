@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('barcodes', function (Blueprint $table) {
             $table->id();
+            $table->string('barcode_name');
             $table->timestamps();
         });
     }
