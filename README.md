@@ -61,3 +61,80 @@ Now you can see permission.php file and one migrations. So, we need to run migra
 ```
 php artisan migrate
 ```
+
+## Step 4 : Create Organization Migration file, factory and seeder file
+
+#### In this step, Create migration for the item table.
+```
+php artisan make:model Organization -mfs
+```
+
+## Step 5 : Create Category Migration file, factory and seeder file
+
+#### In this step, Create migration for the item table.
+```
+php artisan make:model Category -mfs
+```
+
+## Step 6 : Create Brand Migration file, factory and seeder file
+
+#### In this step, Create migration for the item table.
+```
+php artisan make:model Brand -mfs
+```
+
+## Step 7 : Create Barcode Migration file, factory and seeder file
+
+#### In this step, Create migration for the item table.
+```
+php artisan make:model Barcode -mfs
+```
+
+## Step 8 : Create Customer Migration file, factory and seeder file
+
+#### In this step, Create migration for the item table.
+```
+php artisan make:model Customer -mfs
+```
+
+## Step 9 : Create Supplier Migration file, factory and seeder file
+
+#### In this step, Create migration for the item table.
+```
+php artisan make:model Supplier -mfs
+```
+
+## Step 10 : Create Item Migration file, factory and seeder file
+
+#### In this step, Create migration for the item table.
+```
+php artisan make:model Item -mfs
+```
+
+## Step 11 : Create CheckIn Migration file, factory and seeder file
+
+#### In this step, Create migration for the item table.
+```
+php artisan make:model CheckIn -mfs
+```
+
+## Step 12 : Create CheckInDetail Migration file, factory and seeder file
+
+#### In this step, Create migration for the item table.
+```
+php artisan make:model CheckInDetail -mfs
+```
+
+## Step 13 : Create CheckOut Migration file, factory and seeder file
+
+#### In this step, Create migration for the item table.
+```
+php artisan make:model CheckOut -mfs
+```
+
+## Step 14 : Create CheckOutDetail Migration file, factory and seeder file
+
+#### In this step, Create migration for the item table.
+```
+php artisan make:model CheckOutDetail -mfs
+```
