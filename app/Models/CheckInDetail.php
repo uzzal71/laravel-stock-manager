@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class CheckInDetail extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['check_in_id', 'item_id', 'quantity'];
 }

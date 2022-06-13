@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('item_barcode');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('brand_id');
-            $table->intiger('item_quantity')->default(0);
+            $table->Integer('item_quantity')->default(0);
             $table->string('item_unit');
-            $table->intiger('item_alert_quantity')->default(5);
+            $table->Integer('item_alert_quantity')->default(5);
             $table->string('item_image')->nullable();
             $table->timestamps();
 
