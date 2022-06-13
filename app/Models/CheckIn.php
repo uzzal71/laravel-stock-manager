@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class CheckIn extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'check_date', 
+        'reference', 
+        'supplier_id',
+        'note',
+        'attachment',
+        'user_id'
+    ];
 }
