@@ -10,7 +10,7 @@ class CheckIn extends Model
     use HasFactory;
 
     protected $fillable = [
-        'check_date', 
+        'checkin_date', 
         'reference', 
         'supplier_id',
         'note',

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('check_ins', function (Blueprint $table) {
             $table->id();
-            $table->date('check_date');
+            $table->date('checkin_date');
             $table->string('reference');
             $table->unsignedBigInteger('supplier_id');
             $table->text('note')->nullable();

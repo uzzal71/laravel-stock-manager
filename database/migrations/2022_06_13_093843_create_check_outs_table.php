@@ -15,7 +15,16 @@ return new class extends Migration
     {
         Schema::create('check_outs', function (Blueprint $table) {
             $table->id();
+            $table->date('checkout_date');
+            $table->string('reference');
+            $table->unsignedBigInteger('customer_id');
+            $table->text('note')->nullable();
+            $table->text('attachment')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
