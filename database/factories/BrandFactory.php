@@ -17,7 +17,8 @@ class BrandFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'brand_code' => $this->faker->unique()->randomDigit;
+            'brand_name' => $this->faker->name;
         ];
     }
 }

@@ -14,6 +14,6 @@ class BarcodeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\Barcode::factory()->times(10)->create();
     }
 }

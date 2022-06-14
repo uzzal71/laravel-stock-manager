@@ -17,7 +17,7 @@ class BarcodeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'barcode_name' => $this->faker->barcode;
         ];
     }
 }
