@@ -70,12 +70,6 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -85,19 +79,15 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">
-                                        Settings
+                                        <i class="fa fa-list"></i> List Items
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        Categories
+                                        <i class="fa fa-plus"></i> Add Item
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        Add Category
-                                    </a>
-
-                                    <a class="dropdown-item" href="#">
-                                        Backups
+                                        <i class="fa fa-plus"></i> Item by csv
                                     </a>
                                 </div>
                             </li>
@@ -109,19 +99,15 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">
-                                        Settings
+                                        <i class="fa fa-list"></i> List Check-ins
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        Categories
+                                        <i class="fa fa-plus"></i> New Check-in
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        Add Category
-                                    </a>
-
-                                    <a class="dropdown-item" href="#">
-                                        Backups
+                                        <i class="fa fa-plus"></i> Check-in by csv
                                     </a>
                                 </div>
                             </li>
@@ -133,19 +119,15 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">
-                                        Settings
+                                        <i class="fa fa-list"></i>  List Check-outs
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        Categories
+                                        <i class="fa fa-plus"></i> New Check-outs
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        Add Category
-                                    </a>
-
-                                    <a class="dropdown-item" href="#">
-                                        Backups
+                                        <i class="fa fa-plus"></i> Check-out by csv
                                     </a>
                                 </div>
                             </li>
@@ -157,19 +139,38 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">
-                                        Settings
+                                        <i class="fa fa-list"></i> List Roles
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        Categories
+                                        <i class="fa fa-plus"></i> Add Role
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-list"></i> List Users
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        Add Category
+                                        <i class="fa fa-plus"></i> Add User
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        Backups
+                                        <i class="fa fa-list"></i> List Customers
+                                    </a>
+
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-plus"></i> Add Customer
+                                    </a>
+
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-save"></i> Import Customers
+                                    </a>
+
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-list"></i> List Suppliers
+                                    </a>
+
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-plus"></i> Add Supplier
                                     </a>
                                 </div>
                             </li>
@@ -181,15 +182,31 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="#">
-                                        Settings
+                                        <i class="fa fa-cogs"></i> Settings
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        Categories
+                                        <i class="fa fa-folder"></i> Categories
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        Add Category
+                                        <i class="fa fa-plus"></i> Add Category
+                                    </a>
+
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-folder"></i> Brands
+                                    </a>
+
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-plus"></i> Add Brand
+                                    </a>
+
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-folder"></i> Barcodes
+                                    </a>
+
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-plus"></i> Add Barcode
                                     </a>
 
                                     <a class="dropdown-item" href="#">
@@ -204,9 +221,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-user"></i> Profile
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-sign-out"></i> 
                                         {{ __('Logout') }}
                                     </a>
 
