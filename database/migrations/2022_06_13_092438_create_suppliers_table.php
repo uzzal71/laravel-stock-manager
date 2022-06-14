@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('supplier_name');
             $table->string('supplier_email');
             $table->string('supplier_phone');
-            $table->string('supplier_cf1');
-            $table->string('supplier_cf2');
+            $table->string('supplier_cf1')->nullable();
+            $table->string('supplier_cf2')->nullable();
             $table->timestamps();
         });
     }
