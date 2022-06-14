@@ -19,7 +19,7 @@ class SupplierFactory extends Factory
         return [
             'supplier_name' => $this->faker->name,
             'supplier_email' => $this->faker->email,
-            'supplier_phone' => $this->faker->phone,
+            'supplier_phone' => $this->faker->phoneNumber,
         ];
     }
 }
