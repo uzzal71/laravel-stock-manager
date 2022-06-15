@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="container">
+
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
@@ -13,7 +16,6 @@
         </div>
     </div>
 </div>
-
 
 @if ($message = Session::get('success'))
     <div class="alert alert-success">
@@ -40,6 +42,8 @@
                 <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
             @endcan
             @can('roles.delete')
+                <form method="delete" ac>
+                </form>
                 {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                 {!! Form::close() !!}
@@ -51,4 +55,5 @@
 
 {!! $roles->render() !!}
 
+</div>
 @endsection

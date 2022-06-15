@@ -162,10 +162,6 @@
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        <i class="fa fa-save"></i> Import Customers
-                                    </a>
-
-                                    <a class="dropdown-item" href="#">
                                         <i class="fa fa-list"></i> List Suppliers
                                     </a>
 
@@ -243,7 +239,9 @@
         </nav>
 
         <main class="py-4">
+        <div class="container">
             @yield('content')
+        </div>
         </main>
     </div>
 </body>
