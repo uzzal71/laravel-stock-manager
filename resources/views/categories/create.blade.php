@@ -5,10 +5,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Create New Supplier</h2>
+            <h2>Create New Category</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('suppliers.index') }}"> Back </a>
+            <a class="btn btn-primary" href="{{ route('categories.index') }}"> Back </a>
         </div>
     </div>
 </div>
@@ -27,36 +27,18 @@
 
 
 
-{!! Form::open(array('route' => 'suppliers.store','method'=>'POST')) !!}
+{!! Form::open(array('route' => 'categories.store','method'=>'POST')) !!}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Supplier Name:</strong>
-            {!! Form::text('supplier_name', null, array('placeholder' => 'Supplier Name','class' => 'form-control')) !!}
+            <strong>Category Code:</strong>
+            {!! Form::text('category_code', null, array('placeholder' => 'Category Code','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Supplier Email:</strong>
-            {!! Form::text('supplier_email', null, array('placeholder' => 'Supplier Email','class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Supplier Phone:</strong>
-            {!! Form::text('supplier_phone', null, array('placeholder' => 'Supplier Phone','class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Supplier Custom Field 1:</strong>
-            {!! Form::text('supplier_cf1', null, array('placeholder' => 'Supplier Custom Field 1','class' => 'form-control')) !!}
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Supplier Custom Field 2:</strong>
-            {!! Form::text('supplier_cf2', null, array('placeholder' => 'Supplier Custom Field 2','class' => 'form-control')) !!}
+            <strong>Category Name:</strong>
+            {!! Form::text('category_name', null, array('placeholder' => 'Category Name','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -52,7 +52,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'category_code' => 'required|unique.categories, category_code',
+            'category_code' => 'required',
             'category_name' => 'required'
         ]);
     
@@ -99,7 +99,7 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'category_code' => 'required|unique.categories, category_code'.$id,
+            'category_code' => 'required',
             'category_name' => 'required'
         ]);
     
