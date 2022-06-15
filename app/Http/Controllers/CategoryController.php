@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-        /**
-     * Display a listing of the resource.
+     /**
+     * Creaate Category Controller Access Permission
      *
-     * @return \Illuminate\Http\Response
+     * @return True Of False
      */
     function __construct()
     {
