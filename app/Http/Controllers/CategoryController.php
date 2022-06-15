@@ -20,6 +20,18 @@ class CategoryController extends Controller
          $this->middleware('permission:categories.edit', ['only' => ['edit','update']]);
          $this->middleware('permission:categories.delete', ['only' => ['destroy']]);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $data = Category::orderBy('id','DESC')->paginate(5);
+        return view('categories.index',compact('data'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
+    }
     
     /**
      * Show the form for creating a new resource.

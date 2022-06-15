@@ -21,6 +21,18 @@ class BrandController extends Controller
          $this->middleware('permission:brands.edit', ['only' => ['edit','update']]);
          $this->middleware('permission:brands.delete', ['only' => ['destroy']]);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $data = Brand::orderBy('id','DESC')->paginate(5);
+        return view('brands.index',compact('data'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
+    }
     
     /**
      * Show the form for creating a new resource.
