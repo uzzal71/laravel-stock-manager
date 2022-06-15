@@ -1,21 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
-
+    
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Barcode;
 
 class BarcodeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     *Access Permission
      *
-     * @return \Illuminate\Http\Response
+     * @return True OR False
      */
-    public function index()
+    function __construct()
     {
-        //
+         $this->middleware('permission:barcodes.index|barcodes.create|barcodes.edit|barcodes.delete', ['only' => ['index','show']]);
+         $this->middleware('permission:barcodes.create', ['only' => ['create','store']]);
+         $this->middleware('permission:barcodes.edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:barcodes.delete', ['only' => ['destroy']]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -23,7 +28,7 @@ class BarcodeController extends Controller
      */
     public function create()
     {
-        //
+        return view('barcodes.create');
     }
 
     /**
@@ -34,7 +39,16 @@ class BarcodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'barcode_name' => 'required|unique:barcodes, barcode_name',
+        ]);
+    
+        $input = $request->all();
+    
+        Barcode::create($input);
+    
+        return redirect()->route('barcodes.index')
+                        ->with('success','Barcode created successfully');
     }
 
     /**
@@ -45,7 +59,8 @@ class BarcodeController extends Controller
      */
     public function show($id)
     {
-        //
+        $barcode = Barcode::find($id);
+        return view('barcodes.show',compact('barcode'));
     }
 
     /**
@@ -56,7 +71,9 @@ class BarcodeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $barcode = Barcode::find($id);
+    
+        return view('barcodes.edit',compact('barcode'));
     }
 
     /**
@@ -68,7 +85,17 @@ class BarcodeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'barcode_name' => 'required|unique:barcodes, barcode_name'.$id,
+        ]);
+    
+        $input = $request->all();
+    
+        $barcode = Barcode::find($id);
+        $barcode->update($input);
+        
+        return redirect()->route('barcodes.index')
+                        ->with('success','Barcode updated successfully');
     }
 
     /**
@@ -79,6 +106,8 @@ class BarcodeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Barcode::find($id)->delete();
+        return redirect()->route('barcodes.index')
+                        ->with('success','Barcode deleted successfully');
     }
 }

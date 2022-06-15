@@ -1,15 +1,17 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+ 
+ namespace App\Http\Controllers;
+    
+ use Illuminate\Http\Request;
+ use App\Http\Controllers\Controller;
+ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-     /**
-     * Creaate Category Controller Access Permission
+    /**
+     *Access Permission
      *
-     * @return True Of False
+     * @return True OR False
      */
     function __construct()
     {
@@ -20,23 +22,13 @@ class CategoryController extends Controller
     }
     
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -47,7 +39,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'category_code' => 'required|unique.categories, category_code',
+            'category_name' => 'required'
+        ]);
+    
+        $input = $request->all();
+    
+        Category::create($input);
+    
+        return redirect()->route('categories.index')
+                        ->with('success','Supplier created successfully');
     }
 
     /**
@@ -58,7 +60,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::find($id);
+        return view('categories.show',compact('category'));
     }
 
     /**
@@ -69,7 +72,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+    
+        return view('categories.edit',compact('category'));
     }
 
     /**
@@ -81,7 +86,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'category_code' => 'required|unique.categories, category_code'.$id,
+            'category_name' => 'required'
+        ]);
+    
+        $input = $request->all();
+    
+        $category = Category::find($id);
+        $category->update($input);
+        
+        return redirect()->route('categories.index')
+                        ->with('success','Category updated successfully');
     }
 
     /**
@@ -92,6 +108,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::find($id)->delete();
+        return redirect()->route('categories.index')
+                        ->with('success','Category deleted successfully');
     }
 }

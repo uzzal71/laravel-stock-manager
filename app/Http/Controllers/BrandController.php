@@ -1,21 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
-
+    
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Brand;
+
 
 class BrandController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     *Access Permission
      *
-     * @return \Illuminate\Http\Response
+     * @return True OR False
      */
-    public function index()
+    function __construct()
     {
-        //
+         $this->middleware('permission:brands.index|brands.create|brands.edit|brands.delete', ['only' => ['index','show']]);
+         $this->middleware('permission:brands.create', ['only' => ['create','store']]);
+         $this->middleware('permission:brands.edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:brands.delete', ['only' => ['destroy']]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -23,7 +29,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('brands.create');
     }
 
     /**
@@ -34,7 +40,17 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'brand_code' => 'required|unique.brands, brand_code',
+            'brand_name' => 'required'
+        ]);
+    
+        $input = $request->all();
+    
+        Brand::create($input);
+    
+        return redirect()->route('brands.index')
+                        ->with('success','Brand created successfully');
     }
 
     /**
@@ -45,7 +61,8 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        //
+        $brand = Brand::find($id);
+        return view('brands.show',compact('brand'));
     }
 
     /**
@@ -56,7 +73,9 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand = Brand::find($id);
+    
+        return view('brands.edit',compact('brand'));
     }
 
     /**
@@ -68,7 +87,18 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'brand_code' => 'required|unique.brands, brand_code'. $id,
+            'brand_name' => 'required'
+        ]);
+    
+        $input = $request->all();
+    
+        $brand = Brand::find($id);
+        $brand->update($input);
+        
+        return redirect()->route('brands.index')
+                        ->with('success','Brand updated successfully');
     }
 
     /**
@@ -79,6 +109,8 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Brand::find($id)->delete();
+        return redirect()->route('brands.index')
+                        ->with('success','Brand deleted successfully');
     }
 }
