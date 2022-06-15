@@ -138,18 +138,18 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('roles.index') }}">
                                         <i class="fa fa-list"></i> List Roles
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('roles.create') }}">
                                         <i class="fa fa-plus"></i> Add Role
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('users.index') }}">
                                         <i class="fa fa-list"></i> List Users
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('roles.create') }}">
                                         <i class="fa fa-plus"></i> Add User
                                     </a>
 
