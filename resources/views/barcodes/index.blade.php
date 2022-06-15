@@ -5,11 +5,11 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Supplier Management</h2>
+            <h2>Barcode Management</h2>
         </div>
         <div class="pull-right">
-            @can('suppliers.create')
-            <a class="btn btn-success" href="{{ route('suppliers.create') }}"> Create New Supplier </a>
+            @can('brands.create')
+            <a class="btn btn-success" href="{{ route('brands.create') }}"> Create New Barcode </a>
             @endcan
         </div>
     </div>
@@ -26,28 +26,24 @@
 <table class="table table-bordered">
  <tr>
    <th>No</th>
-   <th>Name</th>
-   <th>Email</th>
-   <th>Phone</th>
+   <th>Barcode Name</th>
    <th width="280px">Action</th>
  </tr>
- @foreach ($data as $key => $supplier)
+ @foreach ($data as $key => $barcode)
   <tr>
     <td>{{ ++$i }}</td>
-    <td>{{ $supplier->supplier_name }}</td>
-    <td>{{ $supplier->supplier_email }}</td>
-    <td>{{ $supplier->supplier_phone }}</td>
+    <td>{{ $barcode->barcode_name }}</td>
     <td>
-        @can('suppliers.show')
-       <a class="btn btn-info" href="{{ route('suppliers.show',$supplier->id) }}">Show</a>
+        @can('barcodes.show')
+       <a class="btn btn-info" href="{{ route('barcodes.show',$barcode->id) }}">Show</a>
        @endcan
 
-       @can('suppliers.edit')
-       <a class="btn btn-primary" href="{{ route('suppliers.edit',$supplier->id) }}">Edit</a>
+       @can('barcodes.edit')
+       <a class="btn btn-primary" href="{{ route('barcodes.edit',$barcode->id) }}">Edit</a>
        @endcan
 
-       @can('suppliers.delete')
-        {!! Form::open(['method' => 'DELETE','route' => ['suppliers.destroy', $supplier->id],'style'=>'display:inline']) !!}
+       @can('barcodes.delete')
+        {!! Form::open(['method' => 'DELETE','route' => ['barcodes.destroy', $barcode->id],'style'=>'display:inline']) !!}
             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
         {!! Form::close() !!}
         @endcan

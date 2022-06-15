@@ -20,6 +20,19 @@ class BarcodeController extends Controller
          $this->middleware('permission:barcodes.edit', ['only' => ['edit','update']]);
          $this->middleware('permission:barcodes.delete', ['only' => ['destroy']]);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $data = Barcode::orderBy('id','DESC')->paginate(5);
+        return view('barcodes.index',compact('data'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
+    }
+    
     
     /**
      * Show the form for creating a new resource.
