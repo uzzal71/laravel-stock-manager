@@ -54,15 +54,15 @@ class SupplierController extends Controller
         $this->validate($request, [
             'supplier_name' => 'required',
             'supplier_email' => 'required|email|unique:suppliers,supplier_email',
-            'supplier_phone' => 'required|email|unique:suppliers,supplier_phone',
+            'supplier_phone' => 'required|unique:suppliers,supplier_phone',
         ]);
     
         $input = $request->all();
     
         Supplier::create($input);
     
-        return redirect()->route('customers.index')
-                        ->with('success','Customer created successfully');
+        return redirect()->route('suppliers.index')
+                        ->with('success','Supplier created successfully');
     }
 
     /**
@@ -101,8 +101,8 @@ class SupplierController extends Controller
     {
         $this->validate($request, [
             'supplier_name' => 'required',
-            'supplier_email' => 'required|email|unique:suppliers,supplier_email',
-            'supplier_phone' => 'required|email|unique:suppliers,supplier_phone',
+            'supplier_email' => 'required|email',
+            'supplier_phone' => 'required',
         ]);
     
         $input = $request->all();

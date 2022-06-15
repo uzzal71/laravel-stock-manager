@@ -54,12 +54,12 @@ class CustomerController extends Controller
         $this->validate($request, [
             'customer_name' => 'required',
             'customer_email' => 'required|email|unique:customers,customer_email',
-            'customer_phone' => 'required|email|unique:customers,customer_phone',
+            'customer_phone' => 'required|unique:customers,customer_phone',
         ]);
     
         $input = $request->all();
     
-        User::create($input);
+        Customer::create($input);
     
         return redirect()->route('customers.index')
                         ->with('success','Customer created successfully');
@@ -102,7 +102,7 @@ class CustomerController extends Controller
         $this->validate($request, [
             'customer_name' => 'required',
             'customer_email' => 'required|email|unique:customers,customer_email',
-            'customer_phone' => 'required|email|unique:customers,customer_phone',
+            'customer_phone' => 'required|unique:customers,customer_phone',
         ]);
     
         $input = $request->all();
