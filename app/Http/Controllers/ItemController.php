@@ -11,6 +11,19 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+         $this->middleware('permission:items.index|items.create|items.edit|items.delete', ['only' => ['index','show']]);
+         $this->middleware('permission:items.create', ['only' => ['create','store']]);
+         $this->middleware('permission:items.edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:items.delete', ['only' => ['destroy']]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         //
