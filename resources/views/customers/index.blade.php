@@ -5,11 +5,11 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Users Management</h2>
+            <h2>Customer Management</h2>
         </div>
         <div class="pull-right">
-            @can('users.create')
-            <a class="btn btn-success" href="{{ route('users.create') }}"> Create New User </a>
+            @can('customers.create')
+            <a class="btn btn-success" href="{{ route('customers.create') }}"> Create New Customer </a>
             @endcan
         </div>
     </div>
@@ -28,32 +28,26 @@
    <th>No</th>
    <th>Name</th>
    <th>Email</th>
-   <th>Roles</th>
+   <th>Phone</th>
    <th width="280px">Action</th>
  </tr>
- @foreach ($data as $key => $user)
+ @foreach ($data as $key => $customer)
   <tr>
     <td>{{ ++$i }}</td>
-    <td>{{ $user->name }}</td>
-    <td>{{ $user->email }}</td>
+    <td>{{ $customer->customer_name }}</td>
+    <td>{{ $customer->customer_email }}</td>
+    <td>{{ $customer->customer_phone }}</td>
     <td>
-      @if(!empty($user->getRoleNames()))
-        @foreach($user->getRoleNames() as $v)
-           <label class="badge badge-success">{{ $v }}</label>
-        @endforeach
-      @endif
-    </td>
-    <td>
-        @can('users.show')
-       <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>
+        @can('customers.show')
+       <a class="btn btn-info" href="{{ route('customers.show',$customer->id) }}">Show</a>
        @endcan
 
-       @can('users.edit')
-       <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
+       @can('customers.edit')
+       <a class="btn btn-primary" href="{{ route('customers.edit',$customer->id) }}">Edit</a>
        @endcan
 
-       @can('users.delete')
-        {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
+       @can('customers.delete')
+        {!! Form::open(['method' => 'DELETE','route' => ['customers.destroy', $customer->id],'style'=>'display:inline']) !!}
             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
         {!! Form::close() !!}
         @endcan

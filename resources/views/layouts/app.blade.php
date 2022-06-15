@@ -153,19 +153,19 @@
                                         <i class="fa fa-plus"></i> Add User
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('customers.index') }}">
                                         <i class="fa fa-list"></i> List Customers
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('customers.create') }}">
                                         <i class="fa fa-plus"></i> Add Customer
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('suppliers.index') }}">
                                         <i class="fa fa-list"></i> List Suppliers
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('suppliers.create') }}">
                                         <i class="fa fa-plus"></i> Add Supplier
                                     </a>
                                 </div>
@@ -206,7 +206,7 @@
                                     </a>
 
                                     <a class="dropdown-item" href="#">
-                                        Backups
+                                    <i class="fa fa-database"></i> Backups
                                     </a>
                                 </div>
                             </li>

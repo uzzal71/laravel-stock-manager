@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+    
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Customer;
 
 class CustomerController extends Controller
 {
@@ -11,9 +13,24 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    function __construct()
     {
-        //
+         $this->middleware('permission:customers.index|customers.create|customers.edit|customers.delete', ['only' => ['index','show']]);
+         $this->middleware('permission:customers.create', ['only' => ['create','store']]);
+         $this->middleware('permission:customers.edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:customers.delete', ['only' => ['destroy']]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $data = Customer::orderBy('id','DESC')->paginate(5);
+        return view('customers.index',compact('data'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -23,7 +40,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('customers.create');
     }
 
     /**
@@ -34,7 +51,18 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'customer_name' => 'required',
+            'customer_email' => 'required|email|unique:customers,customer_email',
+            'customer_phone' => 'required|email|unique:customers,customer_phone',
+        ]);
+    
+        $input = $request->all();
+    
+        User::create($input);
+    
+        return redirect()->route('customers.index')
+                        ->with('success','Customer created successfully');
     }
 
     /**
@@ -45,7 +73,8 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customer = Customer::find($id);
+        return view('customers.show',compact('customer'));
     }
 
     /**
@@ -56,7 +85,9 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $customer = Customer::find($id);
+    
+        return view('customers.edit', compact('customer'));
     }
 
     /**
@@ -68,7 +99,19 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'customer_name' => 'required',
+            'customer_email' => 'required|email|unique:customers,customer_email',
+            'customer_phone' => 'required|email|unique:customers,customer_phone',
+        ]);
+    
+        $input = $request->all();
+    
+        $customer = Customer::find($id);
+        $customer->update($input);
+        
+        return redirect()->route('customers.index')
+                        ->with('success','Customer updated successfully');
     }
 
     /**
@@ -79,6 +122,8 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Customer::find($id)->delete();
+        return redirect()->route('customers.index')
+                        ->with('success','Customer deleted successfully');
     }
 }

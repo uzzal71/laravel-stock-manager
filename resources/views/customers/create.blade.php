@@ -5,10 +5,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Create New User</h2>
+            <h2>Create New Customer</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('users.index') }}"> Back </a>
+            <a class="btn btn-primary" href="{{ route('customers.index') }}"> Back </a>
         </div>
     </div>
 </div>
@@ -27,36 +27,36 @@
 
 
 
-{!! Form::open(array('route' => 'users.store','method'=>'POST')) !!}
+{!! Form::open(array('route' => 'customers.store','method'=>'POST')) !!}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Name:</strong>
-            {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+            <strong>Customer Name:</strong>
+            {!! Form::text('customer_name', null, array('placeholder' => 'Customer Name','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Email:</strong>
-            {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
+            <strong>Customer Email:</strong>
+            {!! Form::text('customer_email', null, array('placeholder' => 'Customer Email','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Password:</strong>
-            {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
+            <strong>Customer Phone:</strong>
+            {!! Form::text('customer_phone', null, array('placeholder' => 'Customer Phone','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Confirm Password:</strong>
-            {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
+            <strong>Customer Custom Field 1:</strong>
+            {!! Form::text('customer_cf1', null, array('placeholder' => 'Customer Custom Field 1','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Role:</strong>
-            {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
+            <strong>Customer Custom Field 2:</strong>
+            {!! Form::text('customer_cf2', null, array('placeholder' => 'Customer Custom Field 2','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
