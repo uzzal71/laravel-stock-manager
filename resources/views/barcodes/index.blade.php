@@ -8,8 +8,8 @@
             <h2>Barcode Management</h2>
         </div>
         <div class="pull-right">
-            @can('brands.create')
-            <a class="btn btn-success" href="{{ route('brands.create') }}"> Create New Barcode </a>
+            @can('barcodes.create')
+            <a class="btn btn-success" href="{{ route('barcodes.create') }}"> Create New Barcode </a>
             @endcan
         </div>
     </div>

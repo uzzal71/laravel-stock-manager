@@ -53,7 +53,7 @@ class BarcodeController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'barcode_name' => 'required|unique:barcodes, barcode_name',
+            'barcode_name' => 'required',
         ]);
     
         $input = $request->all();
@@ -99,7 +99,7 @@ class BarcodeController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'barcode_name' => 'required|unique:barcodes, barcode_name'.$id,
+            'barcode_name' => 'required',
         ]);
     
         $input = $request->all();
