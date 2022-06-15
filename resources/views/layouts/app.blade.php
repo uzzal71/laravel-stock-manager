@@ -181,27 +181,27 @@
                                         <i class="fa fa-cogs"></i> Settings
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('categories.index') }}">
                                         <i class="fa fa-folder"></i> Categories
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('categories.create') }}">
                                         <i class="fa fa-plus"></i> Add Category
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('brands.index') }}">
                                         <i class="fa fa-folder"></i> Brands
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('brands.create') }}">
                                         <i class="fa fa-plus"></i> Add Brand
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('barcodes.index') }}">
                                         <i class="fa fa-folder"></i> Barcodes
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('barcodes.create') }}">
                                         <i class="fa fa-plus"></i> Add Barcode
                                     </a>
 
