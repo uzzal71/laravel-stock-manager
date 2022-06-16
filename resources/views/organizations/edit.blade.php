@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Edit New Organization</h2>
+        <h3><i class="fa fa-cogs"></i> Settings</h3>
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('organizations.show', 1) }}"> Back </a>
