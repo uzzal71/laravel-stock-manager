@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+    
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Item;
+
 
 class ItemController extends Controller
-{
+{ 
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +29,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -36,7 +39,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('items.create');
     }
 
     /**
@@ -47,7 +50,23 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'item_name' => 'required',
+            'item_code' => 'required',
+            'item_barcode' => 'required',
+            'category_id' => 'required',
+            'brand_id' => 'required',
+            'item_quantity' => 'required',
+            'item_unit' => 'required',
+            'item_alert_quantity' => 'required',
+        ]);
+    
+        $input = $request->all();
+    
+        Item::create($input);
+    
+        return redirect()->route('items.index')
+                        ->with('success','Item created successfully');
     }
 
     /**
@@ -58,7 +77,8 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Item::find($id);
+        return view('items.show',compact('item'));
     }
 
     /**
@@ -69,7 +89,9 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Item::find($id);
+    
+        return view('items.edit', compact('item'));
     }
 
     /**
@@ -81,7 +103,24 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'item_name' => 'required',
+            'item_code' => 'required',
+            'item_barcode' => 'required',
+            'category_id' => 'required',
+            'brand_id' => 'required',
+            'item_quantity' => 'required',
+            'item_unit' => 'required',
+            'item_alert_quantity' => 'required',
+        ]);
+    
+        $input = $request->all();
+    
+        $item = Item::find($id);
+        $item->update($input);
+        
+        return redirect()->route('items.index')
+                        ->with('success','Item updated successfully');
     }
 
     /**
@@ -92,6 +131,8 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Item::find($id)->delete();
+        return redirect()->route('items.index')
+                        ->with('success','Item deleted successfully');
     }
 }
