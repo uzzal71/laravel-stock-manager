@@ -1,40 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-
+    
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Organization;
 
 class OrganizationController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     *Access Permission
      *
-     * @return \Illuminate\Http\Response
+     * @return True OR False
      */
-    public function index()
+    function __construct()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+         $this->middleware('permission:barcodes.index|barcodes.create|barcodes.edit|barcodes.delete', ['only' => ['index','show']]);
+         $this->middleware('permission:barcodes.create', ['only' => ['create','store']]);
+         $this->middleware('permission:barcodes.edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:barcodes.delete', ['only' => ['destroy']]);
     }
 
     /**
@@ -45,7 +29,8 @@ class OrganizationController extends Controller
      */
     public function show($id)
     {
-        //
+        $organization = Organization::find($id);
+        return view('organizations.show',compact('organization'));
     }
 
     /**
@@ -56,7 +41,9 @@ class OrganizationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $organization = Organization::find($id);
+    
+        return view('organizations.edit',compact('organization'));
     }
 
     /**
@@ -68,17 +55,19 @@ class OrganizationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $this->validate($request, [
+            'site_name' => 'required',
+            'mobile' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+        ]);
+    
+        $input = $request->all();
+    
+        $organization = Organization::find($id);
+        $organization->update($input);
+        
+        return redirect()->route('organizations.show', $id)
+                        ->with('success','Organization updated successfully');
     }
 }
