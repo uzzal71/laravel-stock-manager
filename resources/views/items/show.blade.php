@@ -5,10 +5,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2> Show Customer</h2>
+            <h2> Show Item</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('customers.index') }}"> Back </a>
+            <a class="btn btn-primary" href="{{ route('items.index') }}"> Back </a>
         </div>
     </div>
 </div>
@@ -17,32 +17,50 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Customer Name:</strong>
-            {{ $customer->customer_name }}
+            <strong>Item Name:</strong>
+            {{ $item->item_name }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Customer Email:</strong>
-            {{ $customer->customer_email }}
+            <strong>Code:</strong>
+            {{ $item->item_code }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Customer Phone:</strong>
-            {{ $customer->customer_phone }}
+            <strong>Barcode:</strong>
+            {{ $item->bar_code }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Customer Custom Field 1:</strong>
-            {{ $customer->customer_cf1 }}
+            <strong>Category:</strong>
+            {{ $item->category_id  }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Customer Custom Field 2:</strong>
-            {{ $customer->customer_cf2 }}
+            <strong>Brand:</strong>
+            {{ $item->brand_id }}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Quantity:</strong>
+            {{ $item->item_quantity }}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Unit:</strong>
+            {{ $item->item_unit }}
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Alert Quantity:</strong>
+            {{ $item->item_alert_quantity }}
         </div>
     </div>
 </div>
