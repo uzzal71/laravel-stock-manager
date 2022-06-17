@@ -165,7 +165,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('organizations.show', 1) }}">
                                         <i class="fa fa-cogs"></i> Settings
                                     </a>
 

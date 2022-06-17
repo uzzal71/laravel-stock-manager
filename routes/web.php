@@ -9,6 +9,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\BarcodeController;
@@ -41,6 +42,7 @@ Route::group(['middleware' => ['auth']], function() {
   Route::resource('users', UserController::class);
   Route::resource('customers', CustomerController::class);
   Route::resource('suppliers', SupplierController::class);
+  Route::resource('organizations', OrganizationController::class)->only(['show', 'edit', 'update']);
   Route::resource('categories', CategoryController::class);
   Route::resource('brands', BrandController::class);
   Route::resource('barcodes', BarcodeController::class);
