@@ -78,16 +78,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('items.index') }}">
                                         <i class="fa fa-list"></i> List Items
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('items.create') }}">
                                         <i class="fa fa-plus"></i> Add Item
-                                    </a>
-
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-plus"></i> Item by csv
                                     </a>
                                 </div>
                             </li>
@@ -105,10 +101,6 @@
                                     <a class="dropdown-item" href="#">
                                         <i class="fa fa-plus"></i> New Check-in
                                     </a>
-
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-plus"></i> Check-in by csv
-                                    </a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -124,10 +116,6 @@
 
                                     <a class="dropdown-item" href="#">
                                         <i class="fa fa-plus"></i> New Check-outs
-                                    </a>
-
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-plus"></i> Check-out by csv
                                     </a>
                                 </div>
                             </li>

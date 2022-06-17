@@ -1,8 +1,10 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+ 
+ namespace App\Http\Controllers;
+    
+ use Illuminate\Http\Request;
+ use App\Http\Controllers\Controller;
+ use App\Models\Item;
 
 class ItemController extends Controller
 {
@@ -24,9 +26,11 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = Item::orderBy('id','DESC')->paginate(5);
+        return view('items.index',compact('data'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -92,6 +96,8 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Item::find($id)->delete();
+        return redirect()->route('items.index')
+                        ->with('success','Item deleted successfully');
     }
 }
