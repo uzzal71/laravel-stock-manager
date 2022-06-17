@@ -51,7 +51,23 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'item_name' => 'required',
+            'item_code' => 'required',
+            'item_barcode' => 'required',
+            'category_id' => 'required',
+            'brand_id' => 'required',
+            'item_quantity' => 'required',
+            'item_unit' => 'required',
+            'item_alert_quantity' => 'required',
+        ]);
+    
+        $input = $request->all();
+    
+        Item::create($input);
+    
+        return redirect()->route('items.index')
+                        ->with('success','Item created successfully');
     }
 
     /**
@@ -88,7 +104,24 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'item_name' => 'required',
+            'item_code' => 'required',
+            'item_barcode' => 'required',
+            'category_id' => 'required',
+            'brand_id' => 'required',
+            'item_quantity' => 'required',
+            'item_unit' => 'required',
+            'item_alert_quantity' => 'required',
+        ]);
+    
+        $input = $request->all();
+    
+        $item = Item::find($id);
+        $item->update($input);
+        
+        return redirect()->route('items.index')
+                        ->with('success','Item updated successfully');
     }
 
     /**
@@ -99,6 +132,8 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Item::find($id)->delete();
+        return redirect()->route('items.index')
+                        ->with('success','Item deleted successfully');
     }
 }
