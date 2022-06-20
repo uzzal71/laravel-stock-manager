@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+    
+ use Illuminate\Http\Request;
+ use App\Http\Controllers\Controller;
+ use App\Models\CheckOut;
 
 class CheckOutController extends Controller
 { 
@@ -13,7 +15,9 @@ class CheckOutController extends Controller
      */
     public function index()
     {
-        //
+        $data = CheckOut::orderBy('id','DESC')->paginate(5);
+        return view('checkout.index',compact('data'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
