@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CheckInController;
+use App\Http\Controllers\CheckOutController;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
