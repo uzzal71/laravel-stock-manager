@@ -26,7 +26,7 @@
                                     <a href="{{ route('users.index') }}"><i class="fa fa-users"></i> <span>Users</span></a>
                                 </td>
                                 <td class="text-center btn-theme03">
-                                    <a href="#"><i class="fa fa-cogs"></i> <span>Settings</span></a>
+                                    <a href="{{ route('organizations.show', 1) }}"><i class="fa fa-cogs"></i> <span>Settings</span></a>
                                 </td>
                             </tr>
                         </tbody>
