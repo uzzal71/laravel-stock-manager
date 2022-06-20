@@ -48,4 +48,5 @@ Route::group(['middleware' => ['auth']], function() {
   Route::resource('brands', BrandController::class);
   Route::resource('barcodes', BarcodeController::class);
   Route::resource('items', ItemController::class);
+  Route::resource('checkin', CheckInController::class);
 });
