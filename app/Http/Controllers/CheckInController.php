@@ -1,8 +1,10 @@
 <?php
  
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+ namespace App\Http\Controllers;
+    
+ use Illuminate\Http\Request;
+ use App\Http\Controllers\Controller;
+ use App\Models\CheckIn;
 
 class CheckInController extends Controller
 {
@@ -26,7 +28,9 @@ class CheckInController extends Controller
      */
     public function index()
     { 
-        //
+        $data = CheckIn::orderBy('id','DESC')->paginate(5);
+        return view('checkin.index',compact('data'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
