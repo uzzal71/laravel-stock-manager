@@ -11,8 +11,21 @@ class CheckInController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    function __construct()
     {
+         $this->middleware('permission:checkins.index|checkins.create|checkins.edit|checkins.delete', ['only' => ['index','show']]);
+         $this->middleware('permission:checkins.create', ['only' => ['create','store']]);
+         $this->middleware('permission:checkins.edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:checkins.delete', ['only' => ['destroy']]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    { 
         //
     }
 
