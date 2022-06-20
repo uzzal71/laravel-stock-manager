@@ -40,7 +40,7 @@ class CheckInController extends Controller
      */
     public function create()
     {
-        //
+        return view('checkin.create');
     }
 
     /**
