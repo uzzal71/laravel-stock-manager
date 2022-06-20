@@ -110,11 +110,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('checkout.index') }}">
                                         <i class="fa fa-list"></i>  List Check-outs
                                     </a>
 
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('checkout.create') }}">
                                         <i class="fa fa-plus"></i> New Check-outs
                                     </a>
                                 </div>
