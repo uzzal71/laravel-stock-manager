@@ -23,16 +23,10 @@
                                     <a href="#"><i class="fa fa-arrow-circle-down"></i> <span>Check-out Items</span></a>
                                 </td>
                                 <td class="text-center btn-theme03">
-                                    <a href="#"><i class="fa fa-users"></i> <span>Users</span></a>
+                                    <a href="{{ route('users.index') }}"><i class="fa fa-users"></i> <span>Users</span></a>
                                 </td>
                                 <td class="text-center btn-theme03">
                                     <a href="#"><i class="fa fa-cogs"></i> <span>Settings</span></a>
-                                </td>
-                                <td class="text-center btn-theme03">
-                                    <a href="#"><i class="fa fa-download"></i> <span>Backups</span></a>
-                                </td>
-                                <td class="text-center btn-theme03">
-                                    <a href="#"><i class="fa fa-upload"></i> <span>Updates</span></a>
                                 </td>
                             </tr>
                         </tbody>
