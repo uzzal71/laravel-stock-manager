@@ -26,7 +26,7 @@ class CheckInController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     { 
         $data = CheckIn::orderBy('id','DESC')->paginate(5);
         return view('checkin.index',compact('data'))
