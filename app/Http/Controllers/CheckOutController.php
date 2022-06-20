@@ -7,7 +7,20 @@ namespace App\Http\Controllers;
  use App\Models\CheckOut;
 
 class CheckOutController extends Controller
-{ 
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    function __construct()
+    {
+         $this->middleware('permission:checkouts.index|checkouts.create|checkouts.edit|checkouts.delete', ['only' => ['index','show']]);
+         $this->middleware('permission:checkouts.create', ['only' => ['create','store']]);
+         $this->middleware('permission:checkouts.edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:checkouts.delete', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
