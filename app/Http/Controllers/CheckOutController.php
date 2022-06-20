@@ -26,7 +26,7 @@ class CheckOutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $data = CheckOut::orderBy('id','DESC')->paginate(5);
         return view('checkout.index',compact('data'))
