@@ -17,7 +17,7 @@
                                     <a href="{{ route('items.index') }}"><i class="fa fa-barcode"></i> <span>Items</span></a>
                                 </td>
                                 <td class="text-center btn-theme03">
-                                    <a href="#"><i class="fa fa-arrow-circle-up"></i> <span>Check-in Items</span></a>
+                                    <a href="{{ route('checkin.index') }}"><i class="fa fa-arrow-circle-up"></i> <span>Check-in Items</span></a>
                                 </td>
                                 <td class="text-center btn-theme03">
                                     <a href="#"><i class="fa fa-arrow-circle-down"></i> <span>Check-out Items</span></a>
