@@ -31,23 +31,23 @@
    <th>Supplier</th>
    <th width="280px">Action</th>
  </tr>
- @foreach ($data as $key => $item)
+ @foreach ($data as $key => $checkin)
   <tr>
     <td>{{ ++$i }}</td>
-    <td>{{ $item->checkin_date }}</td>
-    <td>{{ $item->reference }}</td>
-    <td>{{ $item->supplier_id }}</td>
+    <td>{{ $checkin->checkin_date }}</td>
+    <td>{{ $checkin->reference }}</td>
+    <td>{{ $checkin->supplier_id }}</td>
     <td>
-        @can('items.show')
-       <a class="btn btn-info" href="{{ route('items.show',$item->id) }}">Show</a>
+        @can('checkins.show')
+       <a class="btn btn-info" href="{{ route('checkin.show',$checkin->id) }}">Show</a>
        @endcan
 
-       @can('items.edit')
-       <a class="btn btn-primary" href="{{ route('items.edit',$item->id) }}">Edit</a>
+       @can('checkins.edit')
+       <a class="btn btn-primary" href="{{ route('checkin.edit',$checkin->id) }}">Edit</a>
        @endcan
 
-       @can('items.delete')
-        {!! Form::open(['method' => 'DELETE','route' => ['items.destroy', $item->id],'style'=>'display:inline']) !!}
+       @can('checkins.delete')
+        {!! Form::open(['method' => 'DELETE','route' => ['checkin.destroy', $checkin->id],'style'=>'display:inline']) !!}
             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
         {!! Form::close() !!}
         @endcan

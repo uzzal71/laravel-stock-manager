@@ -5,6 +5,7 @@
  use Illuminate\Http\Request;
  use App\Http\Controllers\Controller;
  use App\Models\CheckIn;
+ use App\Models\CheckInDetail;
  use App\Models\Supplier;
  use App\Models\Item;
 
@@ -66,7 +67,9 @@ class CheckInController extends Controller
      */
     public function show($id)
     {
-        //
+        $checkin = CheckIn::find($id);
+        $checkin_details = CheckInDetail::where('check_in_id', $id)->get();
+        return view('checkin.show',compact('checkin', 'checkin_details'));
     }
 
     /**
