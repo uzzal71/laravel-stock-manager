@@ -69,8 +69,8 @@ class CheckInController extends Controller
     public function show($id)
     {
         $organization = Organization::first();
-        $checkin = CheckIn::find($id);
-        $checkin_details = CheckInDetail::where('check_in_id', $id)->get();
+        $checkin = CheckIn::with(['supplier'])->find($id);
+        $checkin_details = CheckInDetail::with(['item'])->where('check_in_id', $id)->get();
         return view('checkin.show',compact('organization', 'checkin', 'checkin_details'));
     }
 

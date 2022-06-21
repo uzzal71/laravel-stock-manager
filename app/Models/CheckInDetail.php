@@ -10,4 +10,9 @@ class CheckInDetail extends Model
     use HasFactory;
 
     protected $fillable = ['check_in_id', 'item_id', 'quantity'];
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class);
+    }
 }

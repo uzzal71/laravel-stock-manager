@@ -17,4 +17,9 @@ class CheckIn extends Model
         'attachment',
         'user_id'
     ];
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
 }

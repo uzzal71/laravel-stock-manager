@@ -51,16 +51,18 @@
                     <div class="col-sm-6">
                         <div>
                             <span class="text-sm text-grey-m2 align-middle">To:</span>
-                            <span class="text-600 text-110 text-blue align-middle">Alex Doe</span>
+                            <span class="text-600 text-110 text-blue align-middle">
+                                {{ $checkin->supplier->supplier_name }}
+                            </span>
                         </div>
                         <div class="text-grey-m2">
                             <div class="my-1">
-                                Street, City
+                            {{ $checkin->supplier->supplier_email }}
                             </div>
-                            <div class="my-1">
-                                State, Country
-                            </div>
-                            <div class="my-1"><i class="fa fa-phone fa-flip-horizontal text-secondary"></i> <b class="text-600">111-111-111</b></div>
+                            <div class="my-1"><i class="fa fa-phone fa-flip-horizontal text-secondary"></i> 
+                            <b class="text-600">
+                            {{ $checkin->supplier->supplier_phone }}
+                            </b></div>
                         </div>
                     </div>
                     <!-- /.col -->
@@ -90,11 +92,11 @@
                     </div>
 
                     <div class="text-95 text-secondary-d3">
-                        @foreach($checkin_details as $row)
+                        @foreach($checkin_details as $key => $row)
                         <div class="row mb-2 mb-sm-0 py-25">
-                            <div class="d-none d-sm-block col-1">1</div>
-                            <div class="col-9 col-sm-5">Domain registration</div>
-                            <div class="d-none d-sm-block col-2">2</div>
+                            <div class="d-none d-sm-block col-1">{{ $key + 1 }}</div>
+                            <div class="col-9 col-sm-5">{{ $row->item->item_name; }}</div>
+                            <div class="d-none d-sm-block col-2">{{ $row->quantity }}</div>
                         </div>
                         @endforeach
                     </div>
