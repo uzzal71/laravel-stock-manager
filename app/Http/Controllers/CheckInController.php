@@ -32,7 +32,7 @@ class CheckInController extends Controller
      */
     public function index(Request $request)
     { 
-        $data = CheckIn::orderBy('id','DESC')->paginate(5);
+        $data = CheckIn::with('supplier')->orderBy('id','DESC')->paginate(5);
         return view('checkin.index',compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }

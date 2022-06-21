@@ -36,7 +36,7 @@
     <td>{{ ++$i }}</td>
     <td>{{ $checkin->checkin_date }}</td>
     <td>{{ $checkin->reference }}</td>
-    <td>{{ $checkin->supplier_id }}</td>
+    <td>{{ $checkin->supplier->supplier_name }}</td>
     <td>
         @can('checkins.show')
        <a class="btn btn-info" href="{{ route('checkin.show',$checkin->id) }}">Show</a>
