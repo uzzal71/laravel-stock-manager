@@ -8,6 +8,7 @@
  use App\Models\CheckInDetail;
  use App\Models\Supplier;
  use App\Models\Item;
+ use App\Models\Organization;
 
 class CheckInController extends Controller
 {
@@ -67,9 +68,10 @@ class CheckInController extends Controller
      */
     public function show($id)
     {
+        $organization = Organization::first();
         $checkin = CheckIn::find($id);
         $checkin_details = CheckInDetail::where('check_in_id', $id)->get();
-        return view('checkin.show',compact('checkin', 'checkin_details'));
+        return view('checkin.show',compact('organization', 'checkin', 'checkin_details'));
     }
 
     /**
