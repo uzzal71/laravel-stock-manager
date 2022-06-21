@@ -5,6 +5,8 @@
  use Illuminate\Http\Request;
  use App\Http\Controllers\Controller;
  use App\Models\CheckIn;
+ use App\Models\Supplier;
+ use App\Models\Item;
 
 class CheckInController extends Controller
 {
@@ -40,7 +42,9 @@ class CheckInController extends Controller
      */
     public function create()
     {
-        return view('checkin.create');
+        $suppliers = Supplier::all();
+        $items = Item::all();
+        return view('checkin.create', compact('suppliers', 'items'));
     }
 
     /**

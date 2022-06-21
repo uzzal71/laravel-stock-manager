@@ -2,14 +2,14 @@
 
 
 @section('content')
-<div class="row">
+<div class="row mb-2">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Item Management</h2>
         </div>
         <div class="pull-right">
-            @can('items.create')
-            <a class="btn btn-success" href="{{ route('items.create') }}"> Create New Item </a>
+            @can('checkins.create')
+            <a class="btn btn-success" href="{{ route('checkin.create') }}"> Create New Item </a>
             @endcan
         </div>
     </div>
