@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Edit Item</h2>
+            <h2>Edit CheckIn</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('checkin.index') }}"> Back </a>
@@ -29,8 +29,8 @@
 <div class="row mt-2">
     <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group">
-            <strong>Date</strong>
-            {!! Form::date('item_name', null, array('placeholder' => 'Item Name','class' => 'form-control')) !!}
+            <strong>Checkin Date</strong>
+            {!! Form::date('checkin_date', null, array('placeholder' => 'Checkin Date','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6">
@@ -59,7 +59,7 @@
             <select class="form-control" name="item_id">
             <option value="1">Select Item</option>
                 @foreach($items as $item)
-                <option value="{{ $supplier->id }}">{{ $item->item_name }}({{ $item->item_code }})</option>
+                <option value="{{ $item->id }}">{{ $item->item_name }}({{ $item->item_code }})</option>
                 @endforeach
             </select>
         </div>
