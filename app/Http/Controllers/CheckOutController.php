@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
  use App\Http\Controllers\Controller;
  use App\Models\CheckOut;
  use App\Models\CheckOutDetail;
+ use App\Models\Organization;
 
 class CheckOutController extends Controller
 {

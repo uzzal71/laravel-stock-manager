@@ -5,10 +5,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2> Show Item</h2>
+            <h2> Show Detail</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('checkin.index') }}"> Back </a>
+            <a class="btn btn-primary" href="{{ route('checkout.index') }}"> Back </a>
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
             Invoice
             <small class="page-info">
                 <i class="fa fa-angle-double-right text-80"></i>
-                ID: # {{ $checkin->id }}
+                ID: # {{ $checkout->id }}
             </small>
         </h1>
 
@@ -52,16 +52,16 @@
                         <div>
                             <span class="text-sm text-grey-m2 align-middle">To:</span>
                             <span class="text-600 text-110 text-blue align-middle">
-                                {{ $checkin->supplier->supplier_name }}
+                                {{ $checkout->customer->customer_name }}
                             </span>
                         </div>
                         <div class="text-grey-m2">
                             <div class="my-1">
-                            {{ $checkin->supplier->supplier_email }}
+                            {{ $checkout->customer->customer_email }}
                             </div>
                             <div class="my-1"><i class="fa fa-phone fa-flip-horizontal text-secondary"></i> 
                             <b class="text-600">
-                            {{ $checkin->supplier->supplier_phone }}
+                            {{ $checkout->customer->customer_phone }}
                             </b></div>
                         </div>
                     </div>
@@ -75,10 +75,10 @@
                             </div>
 
                             <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> 
-                            <span class="text-600 text-90">ID:</span> #{{ $checkin->id }}</div>
+                            <span class="text-600 text-90">ID:</span> #{{ $checkout->id }}</div>
 
                             <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> 
-                            <span class="text-600 text-90">Issue Date:</span> {{ $checkin->checkin_date }}</div>
+                            <span class="text-600 text-90">Issue Date:</span> {{ $checkout->checkout_date }}</div>
                         </div>
                     </div>
                     <!-- /.col -->
@@ -92,7 +92,7 @@
                     </div>
 
                     <div class="text-95 text-secondary-d3">
-                        @foreach($checkin_details as $key => $row)
+                        @foreach($checkout_details as $key => $row)
                         <div class="row mb-2 mb-sm-0 py-25">
                             <div class="d-none d-sm-block col-1">{{ $key + 1 }}</div>
                             <div class="col-9 col-sm-5">{{ $row->item->item_name; }}</div>
