@@ -17,4 +17,9 @@ class CheckOut extends Model
         'attachment',
         'user_id'
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }
