@@ -29,6 +29,7 @@
    <th>Date</th>
    <th>Reference</th>
    <th>Customer</th>
+   <th>Created By</th>
    <th width="280px">Action</th>
  </tr>
  @foreach ($data as $key => $checkout)
@@ -37,6 +38,7 @@
     <td>{{ $checkout->checkout_date }}</td>
     <td>{{ $checkout->reference }}</td>
     <td>{{ $checkout->customer->customer_name }}</td>
+    <td>{{ $checkout->user->name }}</td>
     <td>
         @can('checkouts.show')
        <a class="btn btn-info" href="{{ route('checkout.show',$checkout->id) }}">Show</a>
