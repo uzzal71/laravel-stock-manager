@@ -5,10 +5,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Create New Checkin</h2>
+            <h2>Create New Checkout</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('checkin.index') }}"> Back </a>
+            <a class="btn btn-primary" href="{{ route('checkout.index') }}"> Back </a>
         </div>
     </div>
 </div>
@@ -28,8 +28,8 @@
 <div class="row mt-2">
     <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group">
-            <strong>Date</strong>
-            {!! Form::date('item_name', null, array('placeholder' => 'Item Name','class' => 'form-control')) !!}
+            <strong>Checkout Date</strong>
+            {!! Form::date('checkout_date', null, array('placeholder' => 'Checkout Date','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6">
@@ -43,11 +43,11 @@
 <div class="row mt-2">
     <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group">
-            <strong>Supplier</strong>
-            <select class="form-control" name="supplier_id">
-                <option value="1">Select Supplier</option>
-                @foreach($suppliers as $supplier)
-                <option value="{{ $supplier->id }}">{{ $supplier->supplier_name }}({{ $supplier->id }})</option>
+            <strong>Customer</strong>
+            <select class="form-control" name="customer_id">
+                <option value="1">Select Customer</option>
+                @foreach($customers as $customer)
+                <option value="{{ $customer->id }}">{{ $customer->customer_name }}({{ $customer->id }})</option>
                 @endforeach
             </select>
         </div>
@@ -58,7 +58,7 @@
             <select class="form-control" name="item_id">
             <option value="1">Select Item</option>
                 @foreach($items as $item)
-                <option value="{{ $supplier->id }}">{{ $item->item_name }}({{ $item->item_code }})</option>
+                <option value="{{ $item->id }}">{{ $item->item_name }}({{ $item->item_code }})</option>
                 @endforeach
             </select>
         </div>
