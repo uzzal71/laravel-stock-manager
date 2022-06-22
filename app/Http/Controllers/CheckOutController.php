@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
  use Illuminate\Http\Request;
  use App\Http\Controllers\Controller;
  use App\Models\CheckOut;
+ use App\Models\CheckOutDetail;
 
 class CheckOutController extends Controller
 {
@@ -62,7 +63,10 @@ class CheckOutController extends Controller
      */
     public function show($id)
     {
-        //
+        $organization = Organization::first();
+        $checkout = CheckOut::with(['customer'])->find($id);
+        $checkout_details = CheckOutDetail::with(['item'])->where('check_out_id', $id)->get();
+        return view('checkout.show',compact('organization', 'checkout', 'checkout_details'));
     }
 
     /**
