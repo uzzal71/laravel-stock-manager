@@ -2,14 +2,14 @@
 
 
 @section('content')
-<div class="row">
+<div class="row mb-2">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Item Management</h2>
         </div>
         <div class="pull-right">
-            @can('items.create')
-            <a class="btn btn-success" href="{{ route('items.create') }}"> Create New Item </a>
+            @can('checkouts.create')
+            <a class="btn btn-success" href="{{ route('checkout.create') }}"> Create New Checkout </a>
             @endcan
         </div>
     </div>
@@ -21,33 +21,33 @@
   <p>{{ $message }}</p>
 </div>
 @endif
-
+ 
 
 <table class="table table-bordered">
  <tr>
    <th>No</th>
-   <th>Name</th>
-   <th>Code</th>
-   <th>Barcode</th>
+   <th>Date</th>
+   <th>Reference</th>
+   <th>Customer</th>
    <th width="280px">Action</th>
  </tr>
- @foreach ($data as $key => $item)
+ @foreach ($data as $key => $checkout)
   <tr>
     <td>{{ ++$i }}</td>
-    <td>{{ $item->item_name }}</td>
-    <td>{{ $item->item_code }}</td>
-    <td>{{ $item->item_barcode }}</td>
+    <td>{{ $checkout->checkout_date }}</td>
+    <td>{{ $checkout->reference }}</td>
+    <td>{{ $checkout->customer->customer_name }}</td>
     <td>
-        @can('items.show')
-       <a class="btn btn-info" href="{{ route('items.show',$item->id) }}">Show</a>
+        @can('checkouts.show')
+       <a class="btn btn-info" href="{{ route('checkout.show',$checkout->id) }}">Show</a>
        @endcan
 
-       @can('items.edit')
-       <a class="btn btn-primary" href="{{ route('items.edit',$item->id) }}">Edit</a>
+       @can('checkouts.edit')
+       <a class="btn btn-primary" href="{{ route('checkout.edit',$checkout->id) }}">Edit</a>
        @endcan
 
-       @can('items.delete')
-        {!! Form::open(['method' => 'DELETE','route' => ['items.destroy', $item->id],'style'=>'display:inline']) !!}
+       @can('checkouts.delete')
+        {!! Form::open(['method' => 'DELETE','route' => ['checkout.destroy', $checkout->id],'style'=>'display:inline']) !!}
             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
         {!! Form::close() !!}
         @endcan

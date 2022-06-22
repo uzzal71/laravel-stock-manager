@@ -21,7 +21,7 @@ class CheckOutController extends Controller
          $this->middleware('permission:checkouts.delete', ['only' => ['destroy']]);
     }
 
-    /**
+    /** 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
