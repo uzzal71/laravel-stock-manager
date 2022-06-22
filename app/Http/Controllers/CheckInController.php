@@ -84,7 +84,7 @@ class CheckInController extends Controller
     {
         $suppliers = Supplier::all();
         $items = Item::all();
-        $checkin = CheckIn::with(['supplier'])->find($id);
+        $checkin = CheckIn::with(['user', 'supplier'])->find($id);
         $checkin_details = CheckInDetail::with(['item'])->where('check_in_id', $id)->get();
         return view('checkin.edit',compact('suppliers', 'items', 'checkin', 'checkin_details'));
     }

@@ -9,7 +9,7 @@
         </div>
         <div class="pull-right">
             @can('checkins.create')
-            <a class="btn btn-success" href="{{ route('checkin.create') }}"> Create New Item </a>
+            <a class="btn btn-success" href="{{ route('checkin.create') }}"> Create New Checkin </a>
             @endcan
         </div>
     </div>
@@ -29,6 +29,7 @@
    <th>Date</th>
    <th>Reference</th>
    <th>Supplier</th>
+   <th>Created By</th>
    <th width="280px">Action</th>
  </tr>
  @foreach ($data as $key => $checkin)
@@ -37,6 +38,7 @@
     <td>{{ $checkin->checkin_date }}</td>
     <td>{{ $checkin->reference }}</td>
     <td>{{ $checkin->supplier->supplier_name }}</td>
+    <td>{{ $checkin->user->name }}</td>
     <td>
         @can('checkins.show')
        <a class="btn btn-info" href="{{ route('checkin.show',$checkin->id) }}">Show</a>
