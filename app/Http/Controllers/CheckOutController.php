@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
  use App\Models\CheckOut;
  use App\Models\CheckOutDetail;
  use App\Models\Organization;
+ use App\Models\Customer;
 
 class CheckOutController extends Controller
 {
@@ -42,7 +43,9 @@ class CheckOutController extends Controller
      */
     public function create()
     {
-        return view('checkout.create');
+        $customers = Customer::all();
+        $items = Item::all();
+        return view('checkout.create', compact('customers', 'items'));
     }
 
     /**
