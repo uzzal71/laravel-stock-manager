@@ -84,7 +84,7 @@ class CheckOutController extends Controller
     {
         $customers = Customer::all();
         $items = Item::all();
-        $checkout = CheckIn::with(['user', 'customer'])->find($id);
+        $checkout = CheckOut::with(['user', 'customer'])->find($id);
         $checkout_details = CheckOutDetail::with(['item'])->where('check_out_id', $id)->get();
         return view('checkout.edit',compact('customers', 'items', 'checkout', 'checkout_details'));
     }
