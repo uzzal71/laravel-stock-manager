@@ -104,7 +104,16 @@ class CheckOutController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $checkout = CheckOut::find($id);
+        $checkout->checkout_date = $request->checkout_date;
+        $checkout->reference = $request->reference;
+        $checkout->supplier_id = $request->supplier_id;
+        $checkout->note = $request->note;
+
+        $checkout->save();
+        
+        return redirect()->route('checkout.index')
+                        ->with('success','Checkout updated successfully');
     }
 
     /**
