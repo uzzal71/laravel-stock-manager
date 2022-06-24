@@ -29,7 +29,7 @@
     <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group">
             <strong>Checkin Date</strong>
-            {!! Form::date('checkin_out', null, array('placeholder' => 'Checkin Date','class' => 'form-control')) !!}
+            {!! Form::date('checkin_date', null, array('placeholder' => 'Checkin Date','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6">
