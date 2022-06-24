@@ -94,6 +94,12 @@ class CheckInController extends Controller
      */
     public function edit($id)
     {
+        $this->validate($request, [
+            'checkin_date' => 'required',
+            'reference' => 'required',
+            'supplier_id' => 'required'
+        ]);
+        
         $suppliers = Supplier::all();
         $items = Item::all();
         $checkin = CheckIn::with(['user', 'supplier'])->find($id);
