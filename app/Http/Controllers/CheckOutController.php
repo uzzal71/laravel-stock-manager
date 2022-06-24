@@ -66,7 +66,7 @@ class CheckOutController extends Controller
         $checkout = new CheckOut;
         $checkout->checkout_date = $request->checkout_date;
         $checkout->reference = $request->reference;
-        $checkout->supplier_id = $request->supplier_id;
+        $checkout->customer_id = $request->customer_id;
         $checkout->note = $request->note;
 
         $checkout->save();
@@ -115,7 +115,7 @@ class CheckOutController extends Controller
             'reference' => 'required',
             'customer_id' => 'required'
         ]);
-        
+
         $checkout = CheckOut::find($id);
         $checkout->checkout_date = $request->checkout_date;
         $checkout->reference = $request->reference;
