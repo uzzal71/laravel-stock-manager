@@ -57,6 +57,12 @@ class CheckInController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'checkin_date' => 'required',
+            'reference' => 'required',
+            'supplier_id' => 'required'
+        ]);
+
         $checkin = new CheckIn;
         $checkin->checkin_date = $request->checkin_date;
         $checkin->reference = $request->reference;
