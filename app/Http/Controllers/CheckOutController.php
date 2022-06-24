@@ -119,7 +119,7 @@ class CheckOutController extends Controller
         $checkout = CheckOut::find($id);
         $checkout->checkout_date = $request->checkout_date;
         $checkout->reference = $request->reference;
-        $checkout->supplier_id = $request->supplier_id;
+        $checkout->customer_id = $request->customer_id;
         $checkout->note = $request->note;
 
         $checkout->save();
