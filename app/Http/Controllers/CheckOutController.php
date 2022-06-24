@@ -57,6 +57,12 @@ class CheckOutController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'checkout_date' => 'required',
+            'reference' => 'required',
+            'customer_id' => 'required'
+        ]);
+
         $checkout = new CheckOut;
         $checkout->checkout_date = $request->checkout_date;
         $checkout->reference = $request->reference;
