@@ -110,6 +110,12 @@ class CheckOutController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'checkout_date' => 'required',
+            'reference' => 'required',
+            'customer_id' => 'required'
+        ]);
+        
         $checkout = CheckOut::find($id);
         $checkout->checkout_date = $request->checkout_date;
         $checkout->reference = $request->reference;
