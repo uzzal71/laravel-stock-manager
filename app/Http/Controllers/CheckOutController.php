@@ -115,6 +115,9 @@ class CheckOutController extends Controller
      */
     public function destroy($id)
     {
-        //
+        CheckOut::find($id)->delete();
+        CheckOutDetail::where('check_out_id', $id)->delete();
+        return redirect()->route('checkout.index')
+                        ->with('success','CheckOut deleted successfully');
     }
 }
