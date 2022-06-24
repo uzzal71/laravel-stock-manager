@@ -115,6 +115,9 @@ class CheckInController extends Controller
      */
     public function destroy($id)
     {
-        //
+        CheckIn::find($id)->delete();
+        CheckInDetail::where('check_in_id', $id)->delete();
+        return redirect()->route('checkin.index')
+                        ->with('success','CheckIn deleted successfully');
     }
 }
