@@ -57,7 +57,7 @@ class CheckInController extends Controller
      */
     public function store(Request $request)
     {
-        $supplier = new Supplier;
+        $checkin = new CheckIn;
     }
 
     /**

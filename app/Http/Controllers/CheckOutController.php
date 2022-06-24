@@ -57,7 +57,7 @@ class CheckOutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $checkout = new CheckOut;
     }
 
     /**
