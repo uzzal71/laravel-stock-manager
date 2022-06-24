@@ -58,6 +58,12 @@ class CheckOutController extends Controller
     public function store(Request $request)
     {
         $checkout = new CheckOut;
+        $checkout->checkout_date = $request->checkout_date;
+        $checkout->reference = $request->reference;
+        $checkout->supplier_id = $request->supplier_id;
+        $checkout->note = $request->note;
+
+        $checkout->save();
     }
 
     /**
